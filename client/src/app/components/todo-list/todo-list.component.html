@@ -1,1 +1,10 @@
-<p>{{todo.title}}</p>
+<div>
+    <div class="card m-2" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item delete">{{todo.title}}
+                <button type="button" (click)="onDelete(todo)" class="btn btn-danger">Delete</button>
+            </li>
+        </ul>
+        
+    </div>  
+</div>

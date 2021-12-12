@@ -1,0 +1,9 @@
+.delete {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card {
+    border-left: 5px solid green;
+}

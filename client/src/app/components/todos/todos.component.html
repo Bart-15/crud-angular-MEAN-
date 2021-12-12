@@ -1,2 +1,3 @@
 <h1>Bart's Todo List</h1>
-<app-todo-list *ngFor="let todo of todos" [todo]="todo"></app-todo-list>
+<app-add-todo  (onSubmit)="addTodo($event)"></app-add-todo>
+<app-todo-list *ngFor="let todo of todos" [todo]="todo" (onDeleteTodo)="deleteTodo(todo)"></app-todo-list>
