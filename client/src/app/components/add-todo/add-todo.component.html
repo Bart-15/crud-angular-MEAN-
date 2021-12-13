@@ -1,6 +1,5 @@
-<form (ngSubmit)="handleSubmit()">
+<form (ngSubmit)="handleSubmit()" *ngIf="showForm">
     <div class="form-group">
-      <label for="title">Todo</label>
       <input type="text" name="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Enter todo" [(ngModel)]="title">
       <small id="emailHelp" class="form-text text-muted">This field must not be empty</small>
     </div>

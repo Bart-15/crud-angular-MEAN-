@@ -1,0 +1,8 @@
+button > a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.completed {
+    text-transform: uppercase;
+}

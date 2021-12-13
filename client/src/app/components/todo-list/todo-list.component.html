@@ -1,10 +1,14 @@
-<div>
-    <div class="card m-2" style="width: 18rem;">
+<div class="cardContainer" (click)="toggleCompleted(todo)">
+    <div class="{{todo.completed ? 'card m-2 cardBorder' : 'card m-2'}}" style="width: 20rem;">
         <ul class="list-group list-group-flush">
             <li class="list-group-item delete">{{todo.title}}
-                <button type="button" (click)="onDelete(todo)" class="btn btn-danger">Delete</button>
+                <div>
+                    <button type="button" class="btn btn-success">
+                        <a routerLink="/edit-todo/{{todo._id}}">View</a>
+                    </button>
+                    <button type="button" (click)="onDelete(todo)" class="btn btn-danger">Delete</button>
+                </div>
             </li>
         </ul>
-        
     </div>  
 </div>

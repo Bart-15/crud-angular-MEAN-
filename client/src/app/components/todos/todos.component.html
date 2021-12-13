@@ -1,3 +1,16 @@
-<h1>Bart's Todo List</h1>
+<div class="headerContainer">
+    <h1>Bart's Todo List</h1>
+    <app-button 
+        text="{{showForm ? 'Close' : 'Create'}}"
+        className="{{showForm ? 'btn btn-success' : 'btn btn-primary'}}"
+        (btnClick)="toggleAddTodo()">
+    </app-button>
+</div>
+<br />
 <app-add-todo  (onSubmit)="addTodo($event)"></app-add-todo>
-<app-todo-list *ngFor="let todo of todos" [todo]="todo" (onDeleteTodo)="deleteTodo(todo)"></app-todo-list>
+<app-todo-list 
+*ngFor="let todo of todos" 
+[todo]="todo"
+    (onDeleteTodo)="deleteTodo(todo)"
+    (onToggleCompleted)="toggleCompleted(todo)">
+</app-todo-list>

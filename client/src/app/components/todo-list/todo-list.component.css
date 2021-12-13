@@ -4,6 +4,15 @@
     justify-content: space-between;
 }
 
-.card {
+.cardBorder {
     border-left: 5px solid green;
+}
+
+.cardContainer {
+   cursor: pointer; 
+}
+
+button > a {
+    text-decoration: none;
+    color:#fff;
 }

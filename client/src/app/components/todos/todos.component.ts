@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TodoService} from '../../services/todo.service'
+import {UiService} from '../../services/ui.service'
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
@@ -8,7 +10,12 @@ import {TodoService} from '../../services/todo.service'
 export class TodosComponent implements OnInit {
   todos: any;
   errors: any;
-  constructor(private todoService: TodoService) { }
+  showForm!: boolean;
+  subscription?: Subscription;
+  constructor(private todoService: TodoService, private uiService:UiService) { 
+    this.subscription = this.uiService.onToggle().subscribe(value => this.showForm = value)
+
+  }
 
   ngOnInit(): void {
     this.fetchTodos()
@@ -32,4 +39,15 @@ export class TodosComponent implements OnInit {
     this.todoService.addTodo(data)
      .subscribe(res => this.fetchTodos())
   }
+
+  toggleAddTodo() : void {
+    this.uiService.toggleAddTodo()
+  }
+
+  toggleCompleted(todo:Object)  : void {
+    this.todoService.toggleCompleted(todo)
+      .subscribe(res => this.fetchTodos())
+  }
+
+  
 }

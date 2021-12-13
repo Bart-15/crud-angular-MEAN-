@@ -29,4 +29,14 @@ export class TodoService {
   addTodo(data: Object): Observable<any> {
     return this.http.post(baseUrl, data, httpOptions)
   }
+
+  toggleCompleted(todo: any): Observable<any> {
+    const url = `${baseUrl}/completed/${todo._id}`
+    return this.http.patch(url, httpOptions)
+  }
+
+  getSingleTodo(id: number) : Observable<any> {
+    const url = `${baseUrl}/${id}`
+    return this.http.get(url)
+  }
 }
